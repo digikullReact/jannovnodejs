@@ -7,5 +7,7 @@
 
 console.log(process.argv[2]);
 
+console.log(parseInt(process.argv[2])+99);
+
 // how to get the user input 
 // A bank application which we will use to get the userdata
