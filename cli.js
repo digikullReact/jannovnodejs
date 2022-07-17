@@ -1,13 +1,10 @@
-//console.log(globalThis);
+const {foo} =require("./main");
 
-// gloabl variable in node js
-//console.log(Object.getOwnPropertyNames(globalThis));
+const firstNumber=process.argv[2];
+const secondNumber=process.argv[3];
 
-// globalThis is a global object of runtime
+console.log(foo(parseInt(firstNumber),parseInt(secondNumber)));
 
-console.log(process.argv[2]);
-
-console.log(parseInt(process.argv[2])+99);
-
-// how to get the user input 
-// A bank application which we will use to get the userdata
+//You have two take to string form the command line 
+// convert them into uppercase
+// and print them after conactenation with -INPUT -> hello world OUTPUT -->HELLO-WORLD
