@@ -1,6 +1,9 @@
 //Restaurant cli app
 
 const readline=require("readline"); // readli
+const readlinePromise=require("readline/promises"); // readli
+
+// 
 
 const os=require("os") ;
 //console.log(os);
