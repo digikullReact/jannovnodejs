@@ -94,7 +94,7 @@ fsPromises.readFile("./files/copy.txt",'utf-8').then(data=>{
 */
 
 //Fs readir 
-
+/*
 fsPromises.readdir("/Users/shubhpro/julybatch").then(data=>{
    data.forEach(ele=>{
   //  console.log(ele);
@@ -107,7 +107,7 @@ fsPromises.readdir("/Users/shubhpro/julybatch").then(data=>{
        // console.log(data);
       //  console.log(data.isDirectory());
     })
-    */
+   
      
 
 
@@ -115,3 +115,20 @@ fsPromises.readdir("/Users/shubhpro/julybatch").then(data=>{
 }).catch(err=>{
     console.log(err);
 })
+// */
+/*
+fs.readFile("rockyou.txt","utf-8",function(err,data){
+    console.log(data);
+
+})
+*/
+
+//Readstream
+
+// read stream  //write stream // duplex stream (for both reading and writing)
+/*
+fs.createReadStream("rockyou.txt").pipe(
+    process.stdout
+    
+)
+*/
