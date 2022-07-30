@@ -9,7 +9,12 @@ const port=9090;
 app.use(express.json());
 app.use(cors());
 
+//send html file 
+//send static images --tomorrows
+//mioddlewares
+
 app.get("/",function(req,res,next){
+
 
     /**
      * response methods  //res.write and res.end() of http already in them 
@@ -49,6 +54,36 @@ app.post("/data",function(req,res){
     res.send("This is a post route");
 })
 
+
+//Url  Query dat and route params data
+
+app.get("/url",function(req,res){
+    //For getting query parameter 
+    console.log(req.query);
+
+   // console.log(req.body);
+    res.send("This is a get route for dfata");
+})
+//Route params
+
+app.get("/url/:data/:id/:name",function(req,res){
+    //For getting query parameter 
+    console.log(req.params.data);
+
+   // console.log(req.body);
+    res.send("This is a get route for dfata");
+})
+
+//not required params 
+// non mandatory req params 
+
+app.get("/params/:id?",function(req,res){
+    //For getting query parameter 
+    console.log(req.params);
+
+   // console.log(req.body);
+    res.send("This is a get route for dfata  idfidididi");
+})
 
 //Starting the express server at given port
 app.listen(port,function(){
