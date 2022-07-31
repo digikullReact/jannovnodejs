@@ -1,6 +1,6 @@
 const express=require("express");
 const cors=require("cors");
-
+const {loggingMiddleware,loggingMiddleware2}=require("./middlewares/middleware");
 const fs=require("fs");
 const app=express();  //getting an app object by calling the express function 
 const port=9090;
@@ -12,6 +12,8 @@ app.use(cors());
 //send html file 
 //send static images --tomorrows
 //mioddlewares
+
+//context api  --jan we
 
 app.get("/",function(req,res,next){
 
@@ -84,6 +86,34 @@ app.get("/params/:id?",function(req,res){
    // console.log(req.body);
     res.send("This is a get route for dfata  idfidididi");
 })
+
+
+
+// using middleware ----->
+// route level middleware
+
+app.get("/middleware",loggingMiddleware,loggingMiddleware2,function(req,res){
+
+    //controller is a method from which you send response to the client 
+
+    res.send("hello people from controller");
+
+})
+
+app.post("/middleware",loggingMiddleware,loggingMiddleware2,function(req,res){
+    console.log(req.body.name);// all upper case
+
+    //controller is a method from which you send response to the client 
+
+    res.send("hello people from controller");
+
+})
+
+
+
+
+
+
 
 //Starting the express server at given port
 app.listen(port,function(){
