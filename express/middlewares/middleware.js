@@ -1,6 +1,7 @@
 function loggingMiddleware(req,res,next){
 
-    console.log("I reached to middleware.....",req.body);
+    console.log("I reached to middleware.....");
+    //req.body.name=req.body.name.toUpperCase();
 
  //   res.send("From middleware");
  next();
@@ -11,14 +12,36 @@ function loggingMiddleware2(req,res,next){
 
     console.log("I reached to middleware.2222222....");
 
-    res.send("From middleware 2");
- //next();
+    //res.send("From middleware 2");
+ next();
 
 }
 
+function routesLevelMiddleware(req,res,next){
+
+    console.log("routesLevelMiddleware.........");
+
+    //res.send("From middleware 2");
+ next();
+
+}
+
+function appLevelMiddleware(req,res,next){
+
+    console.log("appLevelMiddleware.........");
+
+    //res.send("From middleware 2");
+ next();
+
+}
+
+
+
 module.exports={
     loggingMiddleware,
-    loggingMiddleware2
+    loggingMiddleware2,
+    routesLevelMiddleware,
+    appLevelMiddleware
 
 }
 

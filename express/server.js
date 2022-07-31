@@ -1,13 +1,24 @@
 const express=require("express");
 const cors=require("cors");
-const {loggingMiddleware,loggingMiddleware2}=require("./middlewares/middleware");
+const {loggingMiddleware,loggingMiddleware2,appLevelMiddleware}=require("./middlewares/middleware");
 const fs=require("fs");
 const app=express();  //getting an app object by calling the express function 
+const authroutes=require("./routes/auth.routes");
+const htmlroutes=require("./routes/html.routes");
 const port=9090;
 //const data=fs.readFileSync("./large.txt");
 
+
 app.use(express.json());
 app.use(cors());
+//app level middleware
+app.use(appLevelMiddleware);  //this middleware would be activate for every route in your application
+
+app.use("/auth",authroutes);
+
+app.use("/html",htmlroutes);
+
+app.use(express.static("static"));
 
 //send html file 
 //send static images --tomorrows
