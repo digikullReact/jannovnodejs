@@ -3,12 +3,15 @@ import axios from "axios";
 import config from "../config";
 
 const Api = () => {
-   const [state,setState]=useState("");
-   const [input,setInput]=useState({
+  const initialState={
     name:"",
-    email:""
-   })
+    email:"",
+    password:""
+   }
+   const [state,setState]=useState("");
 
+   const [input,setInput]=useState(initialState)
+/*
   useEffect(()=>{
     axios.get(`${config.url}`).then(response=>{
       setState(response.data);
@@ -18,6 +21,7 @@ const Api = () => {
     })
 
   },[])
+  */
 
 
   const handleChange=(event)=>{
@@ -26,8 +30,9 @@ const Api = () => {
   }
 
   const handleClick=()=>{
-    axios.post(`${config.url}/data`,input).then(response=>{
-      setState(response.data);
+    axios.post(`${config.url}/crud/save`,input).then(response=>{
+     alert("User Saved");
+     setInput(initialState);
 
     }).catch(err=>{
       console.log(err);
@@ -35,12 +40,14 @@ const Api = () => {
   }
 
   return (
-    <div>Api
-     <h1>{state}</h1>
+    <div>
+     <h1>Add User</h1>
 
-<input type={"text"} name={"name"} onChange={handleChange} /><br/>
+<input type={"text"} name={"name"}  value={input.name} placeholder="Name" onChange={handleChange} /><br/>
 
-<input type={"text"} name={"email"} onChange={handleChange}/><br/>
+<input type={"text"} name={"email"} value={input.email} placeholder="Email" onChange={handleChange}/><br/>
+
+<input type={"text"} name={"password"} value={input.password} placeholder="Password" onChange={handleChange}/><br/>
 
 <button onClick={handleClick}>
 

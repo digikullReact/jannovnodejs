@@ -5,9 +5,9 @@ const mongoose=require("mongoose");
 //console.log(process.env.MONGO_URL)
 //6woUrEWqS5jgVxHB
 
-const url="mongodb+srv://logan99:6woUrEWqS5jgVxHB@cluster0.kzxg4li.mongodb.net/?retryWrites=true&w=majority"
+//const url="mongodb+srv://logan99:6woUrEWqS5jgVxHB@cluster0.kzxg4li.mongodb.net/?retryWrites=true&w=majority"
 
-mongoose.connect(url).then(data=>{
+mongoose.connect("mongodb://localhost:27017/jannovwe").then(data=>{
     console.log("Mongodb connected")
 }).catch(err=>{
     console.log(err);
