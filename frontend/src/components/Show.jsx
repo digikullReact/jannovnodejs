@@ -1,9 +1,26 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Space, Table, Tag } from 'antd';
+import config from "../config";
+import axios from 'axios';
 
 
 const Show = () => {
     const [data,setData]=useState([]);
+    
+
+    const onChange=()=>{
+      
+
+    }
+    useEffect(()=>{
+        axios.get(`${config.url}/crud`).then(response=>{
+          setData(response.data.data);
+    
+        }).catch(err=>{
+          console.log(err);
+        })
+    
+      },[])
 
     const columns = [
   {
@@ -37,7 +54,7 @@ const Show = () => {
   return (
     <div>
 
-<Table columns={columns} dataSource={data} />
+<Table columns={columns} dataSource={data}  pagination={{ defaultPageSize: 10, onShowSizeChange:onChange, showSizeChanger: true, pageSizeOptions: ['10', '20', '30']}} />
     </div>
   )
 }

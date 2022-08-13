@@ -12,15 +12,7 @@ const Api = () => {
 
    const [input,setInput]=useState(initialState)
 /*
-  useEffect(()=>{
-    axios.get(`${config.url}`).then(response=>{
-      setState(response.data);
-
-    }).catch(err=>{
-      console.log(err);
-    })
-
-  },[])
+ 
   */
 
 
