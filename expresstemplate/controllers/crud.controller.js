@@ -19,10 +19,13 @@ const getData=(req,res)=>{
 const getDataPagination=(req,res)=>{
     const limit=req.query.limit;
     const skip=req.query.skip;
+    const search=req.query.search;
 
     //skip and limit
 
-    User.find().skip(skip).limit(limit).then(data=>{
+    // Regex is used to search particular (pattern matching) in a large text
+
+    User.find({name:{$regex:new RegExp(search)}}).skip(skip).limit(limit).then(data=>{
     
         res.json({
             message:"Success",
