@@ -21,13 +21,13 @@ const getFileData=(req,res)=>{
 
     User.find().then(data=>{
 
-        
+
 
     fs.writeFile("./sh.pdf",JSON.stringify(data),function(err,data){
 
 
        // console.log(__dirname+"/sh.pdf");
-        res.sendFile(__dirname+"/sh.pdf");
+        res.sendFile(__dirname+"/mongo.pdf");
 
     })
         
