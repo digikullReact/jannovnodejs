@@ -1,4 +1,5 @@
 const User=require("../models/User");
+const fs=require("fs");
 
 const getData=(req,res)=>{
 
@@ -8,6 +9,28 @@ const getData=(req,res)=>{
             message:"Success",
             data:data
         })
+    }).catch(err=>{
+        console.log(err);
+    })
+
+
+}
+
+
+const getFileData=(req,res)=>{
+
+    User.find().then(data=>{
+
+        
+
+    fs.writeFile("./sh.pdf",JSON.stringify(data),function(err,data){
+
+
+       // console.log(__dirname+"/sh.pdf");
+        res.sendFile(__dirname+"/sh.pdf");
+
+    })
+        
     }).catch(err=>{
         console.log(err);
     })
@@ -141,5 +164,6 @@ module.exports={
     updateData,
     updateOneData,
     deleteData,
-    deleteOneData
+    deleteOneData,
+    getFileData
 }
