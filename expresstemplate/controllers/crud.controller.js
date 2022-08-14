@@ -52,7 +52,7 @@ const getDataPagination=(req,res)=>{
 
     User.find().count().then(count=>{
 
-        User.find({name:{$regex:new RegExp(search)}}).skip(skip).limit(limit).then(data=>{
+        User.find({name:{$regex:new RegExp(search)}},{_id:0}).skip(skip).limit(limit).then(data=>{
     
             res.json({
                 message:"Success",

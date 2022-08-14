@@ -17,6 +17,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Header</h1>
 
 <Routes>
       <Route path="/add" element={  <Api/>}/>
@@ -29,7 +30,7 @@ function App() {
     
     </Routes>
 
- 
+ <h1>Footer</h1>
     
     </div>
   )
