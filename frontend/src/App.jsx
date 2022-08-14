@@ -8,7 +8,9 @@ import {
   Route,
 } from "react-router-dom";
 import Show from './components/Show';
-import Pagination from './components/Pagination';
+
+import Page from './components/Page';
+
 
 function App() {
 
@@ -19,7 +21,9 @@ function App() {
 <Routes>
       <Route path="/add" element={  <Api/>}/>
       <Route path="/show" element={ <Show/>}/>
-      <Route path="/page" element={ <Pagination/>}/>
+
+      <Route path="/page" element={ <Page/>}/>
+
        
       
     
