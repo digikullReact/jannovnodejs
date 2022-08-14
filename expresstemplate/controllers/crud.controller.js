@@ -48,15 +48,26 @@ const getDataPagination=(req,res)=>{
 
     // Regex is used to search particular (pattern matching) in a large text
 
-    User.find({name:{$regex:new RegExp(search)}}).skip(skip).limit(limit).then(data=>{
+    // Promise.All();
+
+    User.find().count().then(count=>{
+
+        User.find({name:{$regex:new RegExp(search)}}).skip(skip).limit(limit).then(data=>{
     
-        res.json({
-            message:"Success",
-            data:data
+            res.json({
+                message:"Success",
+                data:data,
+                totalCount:count
+            })
+        }).catch(err=>{
+            console.log(err);
         })
+
     }).catch(err=>{
         console.log(err);
     })
+
+ 
 
 
 }
