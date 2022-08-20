@@ -49,7 +49,7 @@ connectDb();
             // Create a new user
 
             // MAke this dynamic
-const jane = await User.create({ name: "Jane", email: "Doe" ,password:"1234"});
+const jane = await User.create({ name: data.name, email: data.email,password:data.password});
 console.log("Jane's auto-generated ID:", jane.id);
 return jane.id;
 
@@ -63,7 +63,86 @@ return jane.id;
   }
 
 
+    //Model Methods 
+
+    const  selectAllData=async()=>{
+
+      try {
+              // Create a new user
+  
+              // MAke this dynamic
+  const users = await User.findAll(
+
+  /*  {
+      attributes: ['email', 'name']
+    }
+    */
+  );
+return users;
+          
+      } catch (error) {
+          //return error;
+          throw new Error(error);
+      }
+  
+  
+    }
+  
+
+    // Search with where clause
+
+
+     //Model Methods 
+
+     const  searchData=async(data)=>{
+
+      try {
+              // Create a new user
+  
+              // MAke this dynamic
+  const users = await User.findAll(
+    {
+      where: {
+        name: data,
+        
+      }
+    }
+  );
+return users;
+          
+      } catch (error) {
+          //return error;
+          throw new Error(error);
+      }
+  
+  
+    }
+
+    const  updateData=async(data)=>{
+
+      try {
+              // Create a new user
+  
+              // MAke this dynamic
+        const users=      await User.update({ name: data.name }, {
+                where: {
+                  id: data.id
+                }
+              });
+return users;
+          
+      } catch (error) {
+          //return error;
+          throw new Error(error);
+      }
+  
+  
+    }
+
 
 module.exports={
-    insertIntoDb
+    insertIntoDb,
+    selectAllData,
+    searchData,
+    updateData
 }
