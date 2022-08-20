@@ -140,9 +140,32 @@ return users;
     }
 
 
+    const  deleteData=async(data)=>{
+
+      try {
+              // Create a new user
+  
+              // MAke this dynamic
+        const users=      await User.destroy({
+          where: {
+            id:data
+          }
+        });
+return users;
+          
+      } catch (error) {
+          //return error;
+          throw new Error(error);
+      }
+  
+  
+    }
+
+
 module.exports={
     insertIntoDb,
     selectAllData,
     searchData,
-    updateData
+    updateData,
+    deleteData
 }

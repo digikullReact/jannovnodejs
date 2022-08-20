@@ -1,6 +1,6 @@
 const express=require("express");
 const router=express.Router();
-const {insertIntoDb,selectAllData, searchData,updateData} =require("../db");
+const {insertIntoDb,selectAllData, searchData,updateData,deleteData} =require("../db");
 const {encryptPassword,} =require("../middlewares/bcrypt");
 
 
@@ -66,12 +66,36 @@ router.put("/data",function(req,res){
   
 })
 
+router.delete("/data/:id",function(req,res){
+    deleteData(req.params.id).then(result=>{
+        res.json({
+            message:"SuccessFully deleted",
+            result
+        })  
+    
+    }).catch(err=>{
+            console.log(err)
+            res.send(err);
+        })
+    })
+
 
 
 
 router.get("/hello",function(req,res){
     res.send("hii");
 })
+
+
+//Try pagination api -->
+// LIMIT AND OFFSET
+
+// Authentication jwt -->
+//restricting apis
+//aggregation and joins 
+//sort
+
+//Sending Emails 	 —
 
 /*
 router.get("/data",function(req,res){
