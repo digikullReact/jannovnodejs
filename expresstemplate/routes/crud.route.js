@@ -13,4 +13,5 @@ router.delete("/deleteMany",deleteData);
 router.delete("/deleteOne/:sid",deleteOneData);
 
 
+
 module.exports=router;
