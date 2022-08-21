@@ -7,6 +7,15 @@ const {encryptPassword,} =require("../middlewares/bcrypt");
 const  jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const checkJWt = require('../middlewares/checktoken');
+const sendEmail = require('../email');
+
+
+
+router.get("/email",function(req,res){
+    sendEmail();
+
+    res.send("Mail sendt")
+})
 
 
 router.post("/",encryptPassword,function(req,res){
