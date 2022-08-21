@@ -167,6 +167,36 @@ const deleteOneData=(req,res)=>{
     
 }
 
+const countRecords=()=>{
+  User.aggregate(
+    [
+        {
+            $match: {
+              email: "herringstevenson@zolar.com"
+            }
+          },
+          {
+            $group: {
+              _id: "$email",
+              "sumOfSalaries": {
+                $sum: "$salary"
+              }
+            }
+          }
+
+
+
+    ]
+  ).then(data=>{
+    console.log(data);
+  }).catch(err=>{
+    console.log(err);
+  })
+
+
+
+}
+
 
 module.exports={
     getData,
