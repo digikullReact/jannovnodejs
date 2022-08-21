@@ -162,10 +162,35 @@ return users;
     }
 
 
+    const findByEmail=async(email)=>{
+
+      try {
+        // Create a new user
+
+        // MAke this dynamic
+const users = await User.findOne(
+{
+where: {
+  email: email,
+  
+}
+}
+);
+return users;
+    
+} catch (error) {
+    //return error;
+    throw new Error(error);
+}
+
+    }
+
+
 module.exports={
     insertIntoDb,
     selectAllData,
     searchData,
     updateData,
-    deleteData
+    deleteData,
+    findByEmail
 }

@@ -10,6 +10,7 @@ import {
 import Show from './components/Show';
 
 import Page from './components/Page';
+import Login from './components/Login';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
 <Routes>
       <Route path="/add" element={  <Api/>}/>
+      <Route path="/login" element={ <Login/>}/>
       <Route path="/show" element={ <Show/>}/>
 
       <Route path="/page" element={ <Page/>}/>

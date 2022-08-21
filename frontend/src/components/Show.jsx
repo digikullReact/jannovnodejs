@@ -4,6 +4,11 @@ import config from "../config";
 import axios from 'axios';
 
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
 const Show = () => {
     const [data,setData]=useState([]);
     
@@ -13,7 +18,16 @@ const Show = () => {
 
     }
     useEffect(()=>{
-        axios.get(`${config.url}/crud`).then(response=>{
+     const configData={
+      headers: {
+        token: localStorage.getItem("token")//getCookie("token"),
+      }
+
+
+     }
+
+
+        axios.get(`${config.url}/data`,configData).then(response=>{
           setData(response.data.data);
     
         }).catch(err=>{
