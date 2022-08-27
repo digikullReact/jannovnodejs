@@ -9,6 +9,8 @@ const [state,setState]=useState({
   file:""
 })
 
+const [file,setFile]=useState("");
+
 const handleFileChange=(event)=>{
 
 
@@ -32,6 +34,7 @@ const handleClick=()=>{
 
   axios.post(`${config.url}/filecloudinary`,formdata).then(response=>{
     console.log(response.data);
+    setFile(response.data.fileName)
 
    }).catch(err=>{
      console.log(err);
@@ -42,6 +45,8 @@ const handleClick=()=>{
 
   return (
     <div>
+
+      <img src={file} alt="Uploaded File" width="200px" height="200px" />
 
      <input type="file" onChange={handleFileChange}  /><br></br>
 
