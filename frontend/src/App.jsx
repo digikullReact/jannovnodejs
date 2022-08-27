@@ -11,6 +11,7 @@ import Show from './components/Show';
 
 import Page from './components/Page';
 import Login from './components/Login';
+import Fileupload from './components/Fileupload';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
       <Route path="/show" element={ <Show/>}/>
 
       <Route path="/page" element={ <Page/>}/>
+
+      <Route path="/fileupload" element={ <Fileupload/>}/>
 
        
       
