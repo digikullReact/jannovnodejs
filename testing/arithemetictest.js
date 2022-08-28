@@ -1,4 +1,4 @@
-const {sum,multiple} = require('../arithmetic');
+const {sum,multiple} = require('./arithmetic');
 
 test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 20)).toBeLessThanOrEqual(30)
